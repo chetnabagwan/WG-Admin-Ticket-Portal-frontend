@@ -1,0 +1,52 @@
+:host ::ng-deep .p-menubar {
+    border-radius: 0px;
+    padding: 5px 20px;
+    padding-bottom: 2px;
+    font-family: "Inter", sans-serif;
+}
+
+:host ::ng-deep .p-tieredmenu-root-list{
+    padding: 0%;
+    margin-bottom: 0%;
+}
+
+:host ::ng-deep .p-menuitem-link{
+    text-decoration: none;
+}
+
+:host ::ng-deep svg.p-icon {
+    color: white;
+}
+
+.logo img{
+    margin-top: 5px;
+    width: 10vw;
+}
+
+.profile-text {
+    display: flex;
+    flex-direction: column;
+    color: #000000;
+}
+
+.profile-text h5{
+    white-space: nowrap;
+    margin: 0px;
+    margin-left: 5%;
+    font-size: 1.2vw;
+}
+
+.profile-text p {
+    margin: 0px;
+    margin-left: 5%;
+    font-size: 1.2vw;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img {
+    width: 3vw;
+}
