@@ -9,25 +9,25 @@
     <div class="col-sm">
       <div class="row">
         <div class="card card-detail">
-          <p>Raised Tickets&nbsp;{{stats[0].raised}}</p>
+          <p>Raised Tickets&nbsp;&nbsp;{{stats[0].raised}}</p>
         </div>
       </div>
       <br />
       <div class="row">
         <div class="card card-detail">
-          <p>In-Progress Tickets&nbsp; {{ stats[0].raised }} </p>
+          <p>In-Progress Tickets&nbsp;&nbsp;{{ stats[0].raised }} </p>
         </div>
       </div>
       <br />
       <div class="row">
         <div class="card card-detail">
-          <p>Reviewed Tickets&nbsp;{{ stats[0].review}}</p>
+          <p>Reviewed Tickets&nbsp;&nbsp;{{ stats[0].review}}</p>
         </div>
       </div>
       <br />
       <div class="row">
         <div class="card card-detail">
-          <p>Resolved Tickets&nbsp;{{stats[0].resolved}}</p>
+          <p>Resolved Tickets&nbsp;&nbsp;{{stats[0].resolved}}</p>
         </div>
       </div>
     </div>
@@ -66,7 +66,7 @@
   </div>
   <br />
   <div class="row">
-    <div class="col-md">
+    <div class="col-md-9">
       <div class="card">
         <p-table
           [value]="tickets"
@@ -74,9 +74,10 @@
           [tableStyle]="{ 'min-width': '30rem' }"
         >
           <ng-template pTemplate="caption">
-            <div class="flex align-items-center justify-content-between">
+            <!-- <div class="flex align-items-center justify-content-between tickets-header"> -->
+            <div class="tickets-header">
               All Tickets &nbsp; &nbsp; From {{ year }} Quarters {{ quarter }}
-              <div class="primeng-dropdown justify-content-end">
+              <div class="primeng-dropdown justify-content-end tickets-header-dropdowns">
                 <p-dropdown
                   [options]="years"
                   [(ngModel)]="year"

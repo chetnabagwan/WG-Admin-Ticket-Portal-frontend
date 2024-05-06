@@ -19,3 +19,13 @@
     text-align: center;
 }
 
+.tickets-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tickets-header-dropdowns {
+    align-items: flex-end;
+    padding-left: 20vw;
+}
