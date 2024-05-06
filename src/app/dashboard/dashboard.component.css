@@ -1,0 +1,21 @@
+:host ::ng-deep .p-dropdown-items{
+    padding: 0;
+}
+:host ::ng-deep p-chart{
+    height: 20vh;
+    width: 20vw;
+}
+
+
+.donut {
+    height: 60vh;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+}
+
+.card-detail{
+    padding: 0.5em;
+    text-align: center;
+}
+

@@ -1,0 +1,30 @@
+:host ::ng-deep .p-menubar {
+    border-radius: 0px;
+    padding: 5px 20px;
+    padding-bottom: 2px;
+    font-family: "Inter", sans-serif;
+    background-color: #af0000;
+    height: 9vh;
+}
+
+:host::ng-deep .p-menubar-root-list{
+    background-color: #af0000;
+    margin: auto;
+}
+
+:host ::ng-deep p-menubarsub {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+:host ::ng-deep .p-menuitem-text{
+    color: white;
+    font-size: 2.2vh;
+    font-weight: bold;
+}
+
+/* :host ::ng-deep .p-focus div {
+    background-color: blue;
+    color: black;
+} */
