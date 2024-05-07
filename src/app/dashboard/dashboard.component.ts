@@ -22,17 +22,19 @@ export class DashboardComponent implements OnInit {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
     this.data = {
-      labels: ['A', 'B', 'C'],
+      labels: ['Raised', 'In Progress', 'In Review', 'Closed'],
       datasets: [
         {
-          data: [300, 50, 100],
+          data: [this.stats[0].raised,this.stats[0].in_prog, this.stats[0].review, this.stats[0].closed],
           backgroundColor: [
-            documentStyle.getPropertyValue('--blue-500'),
+            documentStyle.getPropertyValue('--maroon-500'),
+            documentStyle.getPropertyValue('--violet-500'),
             documentStyle.getPropertyValue('--yellow-500'),
             documentStyle.getPropertyValue('--green-500'),
           ],
           hoverBackgroundColor: [
-            documentStyle.getPropertyValue('--blue-400'),
+            documentStyle.getPropertyValue('--maroon-400'),
+            documentStyle.getPropertyValue('--violet-500'),
             documentStyle.getPropertyValue('--yellow-400'),
             documentStyle.getPropertyValue('--green-400'),
           ],

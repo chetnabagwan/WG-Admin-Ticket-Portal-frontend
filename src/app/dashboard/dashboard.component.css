@@ -9,7 +9,7 @@
 
 .donut {
     height: 60vh;
-    width: 30vw;
+    width: 40vw;
     display: flex;
     align-items: center;
 }
@@ -28,4 +28,19 @@
 .tickets-header-dropdowns {
     align-items: flex-end;
     padding-left: 20vw;
+}
+
+.spacer {
+    padding-right: 1em;
+}
+
+.space-left {
+    padding-left: 1em;
+}
+
+.stage-box {
+    height: 13vh;
+    /* color: #fff; */
+    /* background-color: #AF0000; */
+    /* border-radius: 5rem; */
 }

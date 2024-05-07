@@ -7,34 +7,8 @@
       </div>
     </div>
     <div class="col-sm">
-      <div class="row">
-        <div class="card card-detail">
-          <p>Raised Tickets&nbsp;&nbsp;{{stats[0].raised}}</p>
-        </div>
-      </div>
-      <br />
-      <div class="row">
-        <div class="card card-detail">
-          <p>In-Progress Tickets&nbsp;&nbsp;{{ stats[0].raised }} </p>
-        </div>
-      </div>
-      <br />
-      <div class="row">
-        <div class="card card-detail">
-          <p>Reviewed Tickets&nbsp;&nbsp;{{ stats[0].review}}</p>
-        </div>
-      </div>
-      <br />
-      <div class="row">
-        <div class="card card-detail">
-          <p>Resolved Tickets&nbsp;&nbsp;{{stats[0].resolved}}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm">
       <div class="card card-detail">
-        <p-table
+        <!-- <p-table
           [value]="stats"
           styleClass="p-datatable-gridlines"
           [tableStyle]="{ 'min-width': '30rem' }"
@@ -60,6 +34,35 @@
               <td>{{ stat.closed }}</td>
             </tr>
           </ng-template>
+        </p-table> -->
+        <p-table
+          [value]="stats"
+          styleClass="p-datatable-gridlines"
+          [tableStyle]="{ 'min-width': '30rem' }"
+        >
+          <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-center stage-box">
+              Stages
+            </div>
+          </ng-template>
+          <ng-template pTemplate="body" let-stat>
+            <tr>
+              <td>Raised</td>
+              <td>{{stat.raised}}</td>
+            </tr>
+            <tr>
+              <td>In Progress</td>
+              <td>{{stat.in_prog}}</td>
+            </tr>
+            <tr>
+              <td>In Review</td>
+              <td>{{stat.review}}</td>
+            </tr>
+            <tr>
+              <td>Closed</td>
+              <td>{{stat.closed}}</td>
+            </tr>
+          </ng-template>
         </p-table>
       </div>
     </div>
@@ -76,14 +79,18 @@
           <ng-template pTemplate="caption">
             <!-- <div class="flex align-items-center justify-content-between tickets-header"> -->
             <div class="tickets-header">
-              All Tickets &nbsp; &nbsp; From {{ year }} Quarters {{ quarter }}
-              <div class="primeng-dropdown justify-content-end tickets-header-dropdowns">
-                <p-dropdown
-                  [options]="years"
-                  [(ngModel)]="year"
-                  placeholder="Select Year"
-                />
-                &nbsp;
+              <span class="spacer">All Tickets </span>From {{ year }} Quarters
+              {{ quarter }}
+              <div
+                class="primeng-dropdown justify-content-end tickets-header-dropdowns"
+              >
+                <span class="spacer">
+                  <p-dropdown
+                    [options]="years"
+                    [(ngModel)]="year"
+                    placeholder="Select Year"
+                  />
+                </span>
                 <p-dropdown
                   [options]="quarters"
                   [(ngModel)]="quarter"
@@ -113,7 +120,9 @@
               <td>{{ ticket.category }}</td>
               <td>{{ ticket.priority }}</td>
               <td>{{ ticket.stage }}</td>
-              <td>Detail <i class="pi pi-eye" style="font-size: 1rem"></i></td>
+              <td>
+                <i class="pi pi-eye space-left" style="font-size: 1rem"></i>
+              </td>
               <td>{{ ticket.assignee }}</td>
             </tr>
           </ng-template>
@@ -140,7 +149,6 @@
               [(ngModel)]="selectedStage"
               placeholder="Stage"
               class="dropdown"
-              [showClear]="true"
             />
             <br />
           </div>
