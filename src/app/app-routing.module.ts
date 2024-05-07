@@ -9,6 +9,14 @@ const routes: Routes = [
         (m) => m.AuthenticationRoutingModule
       ),
   },
+  {
+    path: 'dashboard',
+    loadChildren: ()=> import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
+  },
+  {
+    path: 'categories',
+    loadChildren: ()=> import('./categories/categories.module').then(m=>m.CategoriesModule)
+  }
 ];
 
 @NgModule({
