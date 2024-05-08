@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { NavbarComponent } from './shared/navbar/navbar.component';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { HeaderComponent } from './header/header.component';
 import { SubHeaderComponent } from './header/sub-header/sub-header.component';
 
@@ -24,7 +23,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     AppRoutingModule,
     AuthenticationModule,
-    DashboardModule,
     MenubarModule,
     TieredMenuModule,
     BrowserAnimationsModule,

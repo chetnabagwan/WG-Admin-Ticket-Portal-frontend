@@ -9,6 +9,10 @@ import { ButtonModule } from 'primeng/button';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { DividerModule } from 'primeng/divider';
 import { TimelineModule } from 'primeng/timeline';
+import { TableModule } from 'primeng/table';
+import { ChartModule } from 'primeng/chart';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -22,7 +26,12 @@ import { TimelineModule } from 'primeng/timeline';
         ButtonModule,
         SplitButtonModule,
         DividerModule,
-        TimelineModule
+        TimelineModule,
+        TableModule,
+        ButtonModule,
+        ChartModule,
+        DropdownModule,
+        FormsModule
     ]
 })
 export class TicketsModule { }
