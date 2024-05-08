@@ -1,0 +1,161 @@
+.main {
+    display: flex;
+    width: 100%;
+}
+
+.left {
+    width:75%;   
+}
+
+.modal-header {
+    flex-wrap: wrap;
+}
+
+.modal-header h4 {
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+.modal-header div {
+    background-color: #af0000;
+    color: white;
+    border-radius: 3em;
+    margin-top: 0.5em;
+    margin-left: 1em;
+    font-size: 0.9em;
+    padding: 0.5em 1em;
+}
+
+
+.right {
+    width: 25%;
+}
+
+.name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.value {
+    background-color: #D9D9D9;
+    width: 90%;
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border-radius: 0.2em;
+}
+
+.image-value {
+    width: 40%;
+    height: 40%;
+    margin-bottom: 1em;
+}
+
+.mark-as {
+    display: flex;
+}
+
+.mark-as p{
+    margin-top: 1em;
+    margin-right: 1em;
+}
+
+.action {
+    cursor: pointer;
+}
+
+#edit {
+    margin-left: auto;
+    margin-right: 1em;
+    border-radius: 0;
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    font-size: 1em;
+    padding: 0.3em 0.8em;
+}
+
+.btn-style {
+    background-color: #af0000;
+    padding: 0.5em 1em;
+    border-radius: 0.2em;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+    margin-right: 1em;
+}
+
+:host ::ng-deep .p-splitbutton-defaultbutton {
+    background-color: #af0000;
+    border: none;
+    padding: 0.5em 1em;
+    border-top-left-radius: 0.2em;
+    border-bottom-left-radius: 0.2em;
+}
+
+:host ::ng-deep .p-splitbutton-menubutton {
+    background-color: #af0000;
+    border: none;
+    margin-right: 1em;
+    padding: 0.5em 1em;
+    border-top-right-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+}
+
+:host ::ng-deep .p-tieredmenu-root-list{
+    padding: 0%;
+    margin-bottom: 0%;
+}
+
+:host ::ng-deep .p-menuitem-link {
+    text-decoration: none;
+}
+i {
+    margin-left: 3px;
+}
+.related-people {
+    margin-bottom: 2em;
+}
+.related-people h5{
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.related-people p{
+    color: #B3B3B3;
+    font-size: 1em;
+}
+
+.related-people div {
+    display: flex;
+    background-color: #FAF7F7;
+    box-shadow: 3px 3px #D9D9D9;
+}
+
+.related-people div img {
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 0.5em;
+}
+
+.related-people div p {
+    color: black;
+    font-weight: 500;
+    margin: auto;
+}
+
+.emp-data {
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.right .emp-data .name {
+    font-weight: bold;
+}
+
+.right .emp-data .data {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
