@@ -1,0 +1,8 @@
+<button (click)="showTicketDetail()" pButton>Click Me</button>
+<app-ticket-detail
+    *ngIf="visible"
+    [visible]="visible"
+    [ticket]="ticket"
+    [resolvers]="resolvers"
+    (closeEvent)="closeDialog()"
+></app-ticket-detail>

@@ -1,0 +1,134 @@
+<p>tickets detail works!</p>
+<p-dialog 
+    header="Ticket Detail Page" 
+    [(visible)]="visible" 
+    [modal]="true"
+    (onHide)="onClose()"
+    [style]="{ width: '65vw' }" 
+    [draggable]="false" 
+    [resizable]="false">
+    <div class="main">
+        <div class="left">
+            <div class="modal-header">
+                <h4>{{ ticket.ticket_id }}</h4>
+                <div>{{ ticket.priority | titlecase }}</div>
+                <div>{{ ticket.category_name| titlecase }}</div>
+                <div>{{ ticket.stage | titlecase }}</div>
+                <button pButton id="edit" [raised]="true" 
+                    [severity]="'danger'"
+                    [disabled]="ticket.stage!='raised'"
+                    (click)="onEdit()"
+                >
+                    Edit
+                    <i class="pi pi-pencil"></i>
+                </button>
+            </div>
+            <hr>
+            <ng-container *ngFor="let item of ticket.details">
+                <p class="name">{{ item.name }}</p>
+                <div class="value" *ngIf="item.type=='text'">{{ item.value }}</div>
+                <img class="image-value" *ngIf="item.type=='image'" [src]="item.value">
+            </ng-container>
+            
+            <div *ngIf="editMode" class="mark-as">
+                <p class="name">Mark For</p>
+                <div  class="modal-header">
+                    <button class="btn-style" pButton 
+                        *ngFor="let item of ticket.stages_allowed"
+                        [severity]="'danger'"
+                        (click)="changeStage($event)"
+                    >
+                        {{ item | titlecase }}
+                    </button>
+                </div>
+            </div>
+
+            <div *ngIf="editMode">
+                <p-splitButton
+                    [label]="'Change Priority'"
+                    [model]="items"
+                    [severity]="'danger'"
+                >
+                </p-splitButton>
+
+                <p-splitButton
+                    [label]="'Assign To'"
+                    [model]="resolversList"
+                    [severity]="'danger'"
+                >
+                </p-splitButton>
+            </div>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio recusandae neque atque beatae, tempora incidunt esse aut dolores soluta, odio libero dolor numquam autem reprehenderit iure quibusdam voluptatum ipsa hic!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio recusandae neque atque beatae, tempora incidunt esse aut dolores soluta, odio libero dolor numquam autem reprehenderit iure quibusdam voluptatum ipsa hic!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio recusandae neque atque beatae, tempora incidunt esse aut dolores soluta, odio libero dolor numquam autem reprehenderit iure quibusdam voluptatum ipsa hic!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio recusandae neque atque beatae, tempora incidunt esse aut dolores soluta, odio libero dolor numquam autem reprehenderit iure quibusdam voluptatum ipsa hic!</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio recusandae neque atque beatae, tempora incidunt esse aut dolores soluta, odio libero dolor numquam autem reprehenderit iure quibusdam voluptatum ipsa hic!</p>
+
+        </div>
+        <p-divider layout="vertical"></p-divider>
+        <div class="right">
+            <div class="related-people">
+                <h5>Related People</h5>
+                <p class="name">REPORTER</p>
+                <div class="value" (mouseenter)="onMouseReporter=true" (mouseleave)="onMouseReporter=false">
+                    <img src="../../../assets/profile.png">
+                    <p>{{ ticket.related_people.reporter.full_name }}</p>
+                </div>
+                <div *ngIf="onMouseReporter" class="emp-data">
+                    <div class="data">
+                        <p class="name">Full Name</p>
+                        <p>{{ ticket.related_people.reporter.full_name }}</p>
+                    </div>
+                    <div class="data">
+                        <p class="name">Phone Number</p>
+                        <p>{{ ticket.related_people.reporter.phone_number }}</p>
+                    </div>
+                    <div class="data">
+                        <p class="name">Email Address</p>
+                        <p>{{ ticket.related_people.reporter.email }}</p>
+                    </div>
+                    <div class="data">
+                        <p class="name">Role</p>
+                        <p>{{ ticket.related_people.reporter.role }}</p>
+                    </div>
+                </div>
+                <p class="name">ASSIGNEE</p>
+                <div class="value" (mouseenter)="onMouseAssignee=true" (mouseleave)="onMouseAssignee=false">
+                    <img src="../../../assets/profile.png">
+                    <p>{{ ticket.related_people.assignee.full_name }}</p>
+                </div>
+                <div *ngIf="onMouseAssignee" class="emp-data">
+                    <div class="data">
+                        <p class="name">Full Name</p>
+                        <p>{{ ticket.related_people.assignee.full_name }}</p>
+                    </div>
+                    <div class="data">
+                        <p class="name">Phone Number</p>
+                        <p>{{ ticket.related_people.assignee.phone_number }}</p>
+                    </div>
+                    <div class="data">
+                        <p class="name">Email Address</p>
+                        <p>{{ ticket.related_people.assignee.email }}</p>
+                    </div>
+                    <div class="data">
+                        <p class="name">Role</p>
+                        <p>{{ ticket.related_people.assignee.role }}</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="history">
+                <p-timeline [value]="events">
+                    <ng-template pTemplate="content" let-event>
+                        <small class="p-text-secondary">{{ event.date }}</small>
+                    </ng-template>
+                    <ng-template pTemplate="opposite" let-event>
+                        {{ event.status }}
+                    </ng-template>
+                </p-timeline>
+            </div>
+        </div>
+    </div>
+        
+</p-dialog>

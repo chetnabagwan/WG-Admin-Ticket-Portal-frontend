@@ -12,7 +12,7 @@ export class SubHeaderComponent implements OnInit{
     ngOnInit() {
         this.items = [
             {
-              label: "Dashboard"
+              label: "Tickets"
             },
             {
               label: "Categories"
