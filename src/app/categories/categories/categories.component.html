@@ -1,6 +1,6 @@
 <div class="container my-5">
     <div class="new-category mb-2">
-        <button pButton pRipple label="New Category" class="new-category-button" (click)="newCategory=!newCategory"></button>
+        <button pButton pRipple label="New Category" class="new-category-button" (click)="onNewCategoryClicked()"></button>
     </div>
     <p-table [value]="filteredCategories" [tableStyle]="{ 'min-width': '30rem' }">
         <ng-template pTemplate="caption">
@@ -40,8 +40,5 @@
                 </tr>
             </ng-template>
     </p-table>
-
-    <p-dialog header="New Category" [modal]="true" [(visible)]="newCategory" [style]="{ width: '25rem' }">
-        <app-new-category></app-new-category>
-    </p-dialog>
+    <app-new-category *ngIf="visible" [visible]="visible"></app-new-category>
 </div>

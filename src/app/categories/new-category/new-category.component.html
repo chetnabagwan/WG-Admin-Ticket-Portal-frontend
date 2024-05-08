@@ -1,3 +1,43 @@
-<form [formGroup]="">
-
-</form>
+<p-dialog header="New Category" 
+    [(visible)]="visible" 
+    [modal]="true" 
+    [style]="{ width: '50vw' }" 
+    [draggable]="false" 
+    [resizable]="false">
+    <div class="container">
+        <form [formGroup]="newCategoryForm">
+            <div class="container">
+                <label class="namelabel">Name:</label>
+                <input formControlName="name" type="text" class="name">
+                <br />
+                <label>Description:</label>
+                <input formControlName="description" type="text" class="description">
+                <br />
+                <span class="stages">
+                    <label>Stages Allowed:</label>
+                    <label><input type="checkbox" formControlName="stagesAllowed" value="Progress" class="inprogresscb space-checkbox">
+                        In-Progress</label>
+                    <label><input type="checkbox" formControlName="stagesAllowed" value="Review" class="reviewcb space-checkbox">
+                        Review</label>
+                </span>
+                <div formArrayName="fields" class="dfields row">
+                    <div *ngFor="let field of dfields.controls; let i = index" class="field">
+                        <label><input formControlName="{{i}}.field.fieldName" type="text" placeholder="Field Name" class="finputfield"> </label>
+                        <label><input formControlName="{{i}}.field.checkbox" type="checkbox" class="fcheckbox space-checkbox"> Required</label>
+                        <select formControlName="{{i}}.field.dropdown" aria-placeholder="Type" class="fdropdown">
+                            <option value="option1">Text</option>
+                            <option value="option2">Number</option>
+                            <option value="option3">Image</option>
+                        </select>
+                        <button type="button" (click)="removeField(i)"> <i class="pi pi-trash deleteicon" 
+                                style="font-size: 1rem"></i></button>
+                    </div>
+                </div>
+                <div class="container">
+                    <button type="button" (click)="addfieldControl()" class="addf row">Add More Fields</button>
+                    <button type="submit" (click)="onSubmit()" class="submit row">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</p-dialog>

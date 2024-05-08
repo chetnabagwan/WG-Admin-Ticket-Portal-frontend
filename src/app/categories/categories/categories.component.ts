@@ -12,7 +12,8 @@ export class CategoriesComponent implements OnInit{
   categories: CategoriesBrief[];
   filteredCategories: CategoriesBrief[];
   search: string = "";
-  newCategory = false;
+  visible:boolean=false;
+  
 
   ngOnInit(): void {
     this.categories = CATEGORIES;
@@ -32,5 +33,9 @@ export class CategoriesComponent implements OnInit{
   clearSearch(){
     this.search = "";
     this.filterCategories();
+  }
+
+  onNewCategoryClicked(){
+    this.visible = true;
   }
 }
