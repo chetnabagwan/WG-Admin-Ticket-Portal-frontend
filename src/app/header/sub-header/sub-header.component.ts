@@ -12,10 +12,12 @@ export class SubHeaderComponent implements OnInit{
     ngOnInit() {
         this.items = [
             {
-              label: "Dashboard"
+              label: "Dashboard",
+              routerLink: "dashboard"
             },
             {
-              label: "Categories"
+              label: "Categories",
+              routerLink: 'categories'
             }
         ];
     }
