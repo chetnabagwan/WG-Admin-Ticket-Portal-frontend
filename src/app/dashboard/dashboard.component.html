@@ -1,40 +1,13 @@
 <div class="container">
   <br /><br />
   <div class="row">
-    <div class="col-sm">
-      <div class="card donut">
+    <div class="col-md">
+      <div class="card donut flex">
         <p-chart type="doughnut" [data]="data" [options]="options" />
       </div>
     </div>
-    <div class="col-sm">
+    <div class="col-md">
       <div class="card card-detail">
-        <!-- <p-table
-          [value]="stats"
-          styleClass="p-datatable-gridlines"
-          [tableStyle]="{ 'min-width': '30rem' }"
-        >
-          <ng-template pTemplate="caption">
-            <div class="flex align-items-center justify-content-between">
-              Stages
-            </div>
-          </ng-template>
-          <ng-template pTemplate="header">
-            <tr>
-              <th>Raised</th>
-              <th>In Progress</th>
-              <th>In Review</th>
-              <th>Closed</th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-stat>
-            <tr>
-              <td>{{ stat.raised }}</td>
-              <td>{{ stat.in_prog }}</td>
-              <td>{{ stat.review }}</td>
-              <td>{{ stat.closed }}</td>
-            </tr>
-          </ng-template>
-        </p-table> -->
         <p-table
           [value]="stats"
           styleClass="p-datatable-gridlines"

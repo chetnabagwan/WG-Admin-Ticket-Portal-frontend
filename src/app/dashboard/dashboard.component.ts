@@ -19,24 +19,22 @@ export class DashboardComponent implements OnInit {
 
   data: any;
   ngOnInit() {
-    const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
     this.data = {
       labels: ['Raised', 'In Progress', 'In Review', 'Closed'],
       datasets: [
         {
           data: [this.stats[0].raised,this.stats[0].in_prog, this.stats[0].review, this.stats[0].closed],
           backgroundColor: [
-            documentStyle.getPropertyValue('--maroon-500'),
-            documentStyle.getPropertyValue('--violet-500'),
-            documentStyle.getPropertyValue('--yellow-500'),
-            documentStyle.getPropertyValue('--green-500'),
+            '#C73659',
+            '#FF6500',
+            '#FF8A08',
+            '#FFC100',
           ],
           hoverBackgroundColor: [
-            documentStyle.getPropertyValue('--maroon-400'),
-            documentStyle.getPropertyValue('--violet-500'),
-            documentStyle.getPropertyValue('--yellow-400'),
-            documentStyle.getPropertyValue('--green-400'),
+            '#C73659',
+            '#FF6500',
+            '#FF8A08',
+            '#FFC100',
           ],
         },
       ],
@@ -60,7 +58,7 @@ export class DashboardComponent implements OnInit {
     plugins: {
       legend: {
         labels: {
-          color: '#fff',
+          color: 'black',
         },
       },
     },

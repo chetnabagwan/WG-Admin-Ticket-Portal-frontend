@@ -2,16 +2,16 @@
     padding: 0;
 }
 :host ::ng-deep p-chart{
-    height: 20vh;
-    width: 20vw;
+    height: 25vh;
+    width: 25vw;
 }
-
 
 .donut {
     height: 60vh;
-    width: 40vw;
+    width: 43vw;
     display: flex;
     align-items: center;
+    /* justify-content: top; */
 }
 
 .card-detail{
@@ -40,7 +40,33 @@
 
 .stage-box {
     height: 13vh;
-    /* color: #fff; */
-    /* background-color: #AF0000; */
-    /* border-radius: 5rem; */
+    color: #fff;
+    background-color: #AF0000;
+    border-radius: 3px;
+}
+
+
+@media all and (orientation: landscape) and (min-aspect-ratio: 16/9) {
+    .donut {
+        height: 60vh;
+        width: 43vw;
+        display: flex;
+        align-items: center;
+    }
+    :host ::ng-deep p-chart{
+        height: 25vh;
+        width: 25vw;
+    }
+}
+
+@media screen and (max-width: 800px) and (min-width: 300px) {
+    :host ::ng-deep p-chart{
+        height: 35vh;
+        width: 35vw;
+    }
+    .donut {
+        display: flex;
+        height: 60vh; 
+        width: 100%; 
+    }
 }
