@@ -12,8 +12,8 @@ export class SubHeaderComponent implements OnInit{
     ngOnInit() {
         this.items = [
             {
-              label: "Dashboard",
-              routerLink: "dashboard"
+              label: "Tickets",
+              routerLink: "tickets"
             },
             {
               label: "Categories",

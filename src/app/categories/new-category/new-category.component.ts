@@ -16,17 +16,17 @@ export class NewCategoryComponent implements OnInit {
   constructor(private fb: FormBuilder){}
 
   ngOnInit(): void {
-    this.newCategoryForm = this.fb.group({
-      name: this.fb.control(""),
-      description: this.fb.control(""),
-      stagesAllowed: this.fb.array([
-        this.fb.control(true),
-        this.fb.control(false),
-        this.fb.control(false),
-        this.fb.control(true),
-      ])
+    // this.newCategoryForm = this.fb.group({
+    //   name: this.fb.control(""),
+    //   description: this.fb.control(""),
+    //   stagesAllowed: this.fb.array([
+    //     this.fb.control(true),
+    //     this.fb.control(false),
+    //     this.fb.control(false),
+    //     this.fb.control(true),
+    //   ])
 
-    })
+    // })
   }
 
 }
