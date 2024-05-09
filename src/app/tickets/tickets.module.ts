@@ -12,12 +12,14 @@ import { TimelineModule } from 'primeng/timeline';
 import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
 import { DropdownModule } from 'primeng/dropdown';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NewTicketComponent } from './new-ticket/new-ticket.component';
 
 @NgModule({
     declarations: [
         TicketsComponent,
-        TicketDetailComponent
+        TicketDetailComponent,
+        NewTicketComponent
     ],
     imports: [
         TicketsRoutingModule,
@@ -31,7 +33,8 @@ import { FormsModule } from '@angular/forms';
         ButtonModule,
         ChartModule,
         DropdownModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class TicketsModule { }

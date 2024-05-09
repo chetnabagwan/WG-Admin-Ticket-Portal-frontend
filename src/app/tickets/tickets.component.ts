@@ -17,7 +17,8 @@ export class TicketsComponent implements OnInit, OnDestroy{
 
     ticketSubscription: Subscription;
     employeeSubscription: Subscription;
-    visible = false;
+    visible:boolean = false;
+    ticketdialogvisible:boolean= false;
     ticket: TicketInterface;
     resolvers: EmployeeInterface[];
     ticketService = inject(TicketsService);
@@ -128,6 +129,10 @@ export class TicketsComponent implements OnInit, OnDestroy{
         this.getTicket();
     }
 
+    onNewTicketClicked() {
+        this.ticketdialogvisible=true;
+    }
+
     getAllResolvers() {
         this.employeeSubscription=
             this.employeeService.getAllResolvers().subscribe({
@@ -153,8 +158,13 @@ export class TicketsComponent implements OnInit, OnDestroy{
             });
     }
 
-    closeDialog() {
+    closeDetailDialog() {
         this.visible = false;
+       
+    }
+
+    closeTicketDialog(){
+        this.ticketdialogvisible = false;
     }
 
     ngOnDestroy() {

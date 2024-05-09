@@ -1,43 +1,81 @@
-<p-dialog header="New Category" 
+<p-dialog 
+    header="New Category" 
     [(visible)]="visible" 
     [modal]="true" 
+    (onHide)="onClose()"
     [style]="{ width: '50vw' }" 
     [draggable]="false" 
     [resizable]="false">
-    <div class="container">
+    <div class="container" *ngIf="visible">
         <form [formGroup]="newCategoryForm">
             <div class="container">
                 <label class="namelabel">Name:</label>
-                <input formControlName="name" type="text" class="name">
+                <input pInputText formControlName="name" type="text" class="name">
                 <br />
                 <label>Description:</label>
-                <input formControlName="description" type="text" class="description">
+                <input pInputText formControlName="description" type="text" class="description">
                 <br />
-                <span class="stages">
                     <label>Stages Allowed:</label>
-                    <label><input type="checkbox" formControlName="stagesAllowed" value="Progress" class="inprogresscb space-checkbox">
-                        In-Progress</label>
-                    <label><input type="checkbox" formControlName="stagesAllowed" value="Review" class="reviewcb space-checkbox">
-                        Review</label>
-                </span>
+                    <div formArrayName="stages_allowed" *ngFor="let stage of stagesAllowed.controls; let i = index">
+                        <span>
+                            <label><input [formControlName]="i" type="checkbox" class="space-checkbox" > {{ i === 0 ? 'In-Progress' : 'Review' }}</label>
+                        </span>
+                    </div>
+                
                 <div formArrayName="fields" class="dfields row">
-                    <div *ngFor="let field of dfields.controls; let i = index" class="field">
-                        <label><input formControlName="{{i}}.field.fieldName" type="text" placeholder="Field Name" class="finputfield"> </label>
-                        <label><input formControlName="{{i}}.field.checkbox" type="checkbox" class="fcheckbox space-checkbox"> Required</label>
-                        <select formControlName="{{i}}.field.dropdown" aria-placeholder="Type" class="fdropdown">
-                            <option value="option1">Text</option>
-                            <option value="option2">Number</option>
-                            <option value="option3">Image</option>
+                    <div *ngFor="let field of dfields.controls; let i = index" class="field" [formGroupName]="i">
+                        <label><input pInputText formControlName="name" type="text" placeholder="Field Name" class="finputfield"> </label>
+                        <label><input p-Checkbox formControlName="required" type="checkbox" class="fcheckbox space-checkbox"> Required</label>
+                        <select p-selectButton formControlName="field_type" aria-placeholder="Type" class="fdropdown">
+                            <option value="text">Text</option>
+                            <option value="number">Number</option>
+                            <option value="image">Image</option>
                         </select>
-                        <button type="button" (click)="removeField(i)"> <i class="pi pi-trash deleteicon" 
-                                style="font-size: 1rem"></i></button>
+                        <button pButton type="button" (click)="removeField(i)"> <i class="pi pi-trash deleteicon" 
+                                style="font-size: 2rem"></i></button>
                     </div>
                 </div>
                 <div class="container">
-                    <button type="button" (click)="addfieldControl()" class="addf row">Add More Fields</button>
-                    <button type="submit" (click)="onSubmit()" class="submit row">SUBMIT</button>
+                    <button pButton type="button" (click)="addfieldControl()" class="addf row">Add More Fields</button>
+                    <button pButton type="submit" (click)="onSubmit()" class="submit row">SUBMIT</button>
                 </div>
             </div>
         </form>
     </div>
+    <!-- <div class="container" ngIf="visible && editMode">
+        <form [formGroup]="newCategoryForm">
+            <div class="container">
+                <label class="namelabel">Name:</label>
+                <input pInputText formControlName="name" type="text" class="name">
+                <br />
+                <label>Description:</label>
+                <input pInputText formControlName="description" type="text" class="description">
+                <br />
+                <span class="stages">
+                    <label>Stages Allowed:</label>
+                    <label><input p-checkbox  type="checkbox" formControlName="stagesAllowed" value="Progress" class="inprogresscb space-checkbox">
+                        In-Progress</label>
+                    <label><input p-checkbox  type="checkbox" formControlName="stagesAllowed" value="Review" class="reviewcb space-checkbox">
+                        Review</label>
+                </span>
+                <div formArrayName="fields" class="dfields row">
+                    <div *ngFor="let field of dfields.controls; let i = index" class="field">
+                        <label><input pInputText formControlName="{{i}}.field.fieldName" type="text" placeholder="Field Name" class="finputfield"> </label>
+                        <label><input pInputText formControlName="{{i}}.field.checkbox" type="checkbox" class="fcheckbox space-checkbox"> Required</label>
+                        <select p-dropdown formControlName="{{i}}.field.dropdown" aria-placeholder="Type" class="fdropdown">
+                            <option value="option1">Text</option>
+                            <option value="option2">Number</option>
+                            <option value="option3">Image</option>
+                        </select>
+                        <button pButton type="button" (click)="removeField(i)"> <i class="pi pi-trash deleteicon" 
+                                style="font-size: 1rem"></i></button>
+                    </div>
+                </div>
+                <div class="container">
+                    <button pButton type="button" (click)="addfieldControl()" class="addf row">Add More Fields</button>
+                    <button pButton type="submit" (click)="onSubmit()" class="submit row">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+    </div> -->
 </p-dialog>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { CATEGORIES } from '../static'; 
-import { CategoriesBrief } from '../../models/categories.model';
+import { Component, OnInit, inject} from '@angular/core';
+import { CategoryInterface } from '../categories.interface';
+import { Subscription } from 'rxjs';
+import { CategoriesService } from '../categories.service';
 
 
 @Component({
@@ -9,15 +10,30 @@ import { CategoriesBrief } from '../../models/categories.model';
   styleUrl: './categories.component.css'
 })
 export class CategoriesComponent implements OnInit{
-  categories: CategoriesBrief[];
-  filteredCategories: CategoriesBrief[];
+  categorySubscription:Subscription;
+  categories: CategoryInterface[];
+  filteredCategories: CategoryInterface[];
+  categoryService = inject(CategoriesService);
   search: string = "";
   visible:boolean=false;
+  editMode:boolean = false;
   
-
+ CATEGORIES: CategoryInterface[] = [
+    {
+        categoryName: "Food-And-Beverages",
+        created_at: new Date().toISOString(),
+        description: "Tickets related to food and beverges in office",
+        stagesAllowed: ['inprogress'],
+        fields: [{
+            name: "detail",
+            required: true,
+            field_type: "text"
+        }]
+    }
+  ]
   ngOnInit(): void {
-    this.categories = CATEGORIES;
-    this.filteredCategories = CATEGORIES;
+    this.categories = this.CATEGORIES;
+    this.filteredCategories = this.CATEGORIES;
   }
 
   filterCategories(){
@@ -37,5 +53,25 @@ export class CategoriesComponent implements OnInit{
 
   onNewCategoryClicked(){
     this.visible = true;
+  }
+  editCategory(catName:string) {
+    this.editMode=true;
+    console.log("Helelo")
+    // // call to db to get cat detail
+    // const fbcategory={
+    //   category_name= 'Food and Beverages',
+    //   description= 'Food and Beverages',
+    //   created_at= Date,
+    //   stagesAllowed:['inProgress','Review'],
+    //   fields:[{name=}]
+    // }
+  }
+
+  closeDialog(){
+    this.visible=false;
+  }
+
+  ngOnDestroy(){
+    if(this.categorySubscription)this.categorySubscription.unsubscribe();
   }
 }

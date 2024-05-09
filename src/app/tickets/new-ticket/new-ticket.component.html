@@ -1,0 +1,20 @@
+<p-dialog 
+    header="Raise Issue" 
+    [(visible)]="ticketdialogvisible" 
+    [modal]="true" 
+    (onHide)="onClose()"
+    [style]="{ width: '50vw' }" 
+    [draggable]="false" 
+    [resizable]="false">
+    <div class="container" *ngIf="ticketdialogvisible">
+        <form [formGroup]="raiseTicketForm">
+            <div class="container">
+                <label>Priority:</label>
+                <input pInputText formControlName="priority" type="text" >
+                <br>
+                <label>Category:</label>
+                <p-dropdown formControlName="category" type="text"/>
+            </div>
+        </form>
+    </div>
+</p-dialog> 
