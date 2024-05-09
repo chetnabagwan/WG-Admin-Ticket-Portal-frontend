@@ -6,6 +6,11 @@
     background-color: #af0000;
     height: 9vh;
 }
+:host ::ng-deep .p-menuitem-text:focus,
+:host ::ng-deep .p-menuitem-text:hover,
+:host ::ng-deep .p-menuitem-text:active {
+    color: black;
+}
 
 :host::ng-deep .p-menubar-root-list{
     background-color: #af0000;

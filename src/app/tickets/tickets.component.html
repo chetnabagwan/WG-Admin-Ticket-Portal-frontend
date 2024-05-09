@@ -1,5 +1,6 @@
 <div class="container">
     <br /><br />
+    <p-button (onClick)="onNewTicketClicked()">New ticket</p-button>
     <div class="row">
       <div class="col-md">
         <div class="card donut flex">
@@ -161,5 +162,7 @@
     [visible]="visible"
     [ticket]="ticket"
     [resolvers]="resolvers"
-    (closeEvent)="closeDialog()"
+    (closeEvent)="closeDetailDialog()"
 ></app-ticket-detail>
+
+<app-new-ticket *ngIf="ticketdialogvisible" [ticketdialogvisible]="ticketdialogvisible" (closeEvent)="closeTicketDialog()"></app-new-ticket>
